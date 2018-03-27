@@ -11,7 +11,7 @@ hosts = []          # Твой список хостов. ["host1", "host2", "ho
 username = ""       # Учетная запись от оборудования. Достаточно режима доступа read only.
 password = ""       # Пароль от уч.записи read only.
 port = ""           # Порт SSH на микротике.
-path = ""           # Путь куда будет записывться конфиг от оборудования.
+path = ""           # Путь куда будет записываться конфиг от оборудования. (Linux /var/backup/ либо Windows D:\\backup\)
 execute = ""        # Команда экспорта конфига. Например для Mikrotik: export или export compact
 format_file = ""    # Формат файла сохранения (.rsc .txt .backup)
 
