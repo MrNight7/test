@@ -7,13 +7,14 @@ from paramiko import AutoAddPolicy
 import datetime
 
 version = str(datetime.date.today())
-hosts = []          # Твой список хостов. ["host1", "host2", "host3"]
-username = ""       # Учетная запись от оборудования. Достаточно режима доступа read only.
-password = ""       # Пароль от уч.записи read only.
-port = ""           # Порт SSH на микротике.
-path = ""           # Путь куда будет записываться конфиг от оборудования. (Linux /var/backup/ либо Windows D:\\backup\)
-execute = ""        # Команда экспорта конфига. Например для Mikrotik: export или export compact
-format_file = ""    # Формат файла сохранения (.rsc .txt .backup)
+hosts = []  # Твой список хостов. ["host1", "host2", "host3"]
+username = ""  # Учетная запись от оборудования. Достаточно режима доступа read only.
+password = ""  # Пароль от уч.записи read only.
+port = ""  # Порт SSH на микротике.
+path = ""  # Путь куда будет записываться конфиг от оборудования. (Linux /var/backup/ либо Windows D:\\backup\)
+execute = ""  # Команда экспорта конфига. Например для Mikrotik: export или export compact
+format_file = ""  # Формат файла сохранения (.rsc .txt .backup)
+
 
 def connect(host, port, execute, path, format_file):
     """Функция: Подключение к оборудованию по SSH и вывод stdout в файл по указанному пути.
@@ -27,6 +28,7 @@ def connect(host, port, execute, path, format_file):
     for line in stdout:
         file.write(line.strip('\n'))
     file.close()
+    ssh.close()
 
 
 for i in hosts:
