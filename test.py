@@ -1,5 +1,4 @@
 import time
-from tkinter import *
 
 
 def print_lines():
